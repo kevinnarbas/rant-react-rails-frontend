@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import mockRests from './mockRests.js'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Hello World</h1>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/restindex" component={ CatIndex } />
+          <Route path="/restshow/:id" component={ CatShow } />
+          <Route path="/restnew" component={ CatNew } />
+          <Route path="/restedit/:id" component={ CatEdit } />
+          <Route component={ NotFound }/>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
